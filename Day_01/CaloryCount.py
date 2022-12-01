@@ -3,7 +3,7 @@ Lines = file1.readlines()
   
 count = 0
 mymax = 0
-# Strips the newline character
+
 for line in Lines:
     if  line.strip() == '':
         if count > mymax:

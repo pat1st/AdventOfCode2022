@@ -1,4 +1,4 @@
-file1 = open('Day_03\inputTest.txt', 'r')
+file1 = open('Day_03\inputProd.txt', 'r')
 Lines = file1.readlines()
 
 itemPriority = {}
@@ -9,7 +9,17 @@ for i in range(26):
 
 print(itemPriority)
 
+prioSum = 0
+
 for line in Lines:
 	#half the string
 	half = int(len(line)/2)
-	a,b = line.split()
+	a,b = line[:half], line[half:]
+	print(a,b)
+	for i in a:
+		if i in b:
+			prioSum += itemPriority[i]
+			print(i, itemPriority[i], prioSum)
+			break
+
+print(prioSum)

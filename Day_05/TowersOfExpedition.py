@@ -1,5 +1,5 @@
 import numpy as np
-file1 = open('Day_05\inputTest.txt', 'r')
+file1 = open('Day_05\inputProd.txt', 'r')
 fileFull = file1.read()
 
 situation, actions = fileFull.split('\n\n')
@@ -18,9 +18,9 @@ for line in range(1, situMatrixFull.shape[1], 4):
 print(situMatrixTarget)  # 2D array of the situation
 
 towArr = []
-for stack in range(0, situMatrixTarget.shape[0]):
+for stack in range(0, situMatrixTarget.shape[0]+1):
     stackArr = []
-    for pos in range(situMatrixTarget.shape[1]-1, -1, -1):
+    for pos in range(situMatrixTarget.shape[1]-2, -1, -1):
         value = situMatrixTarget[pos, stack]
         print(value, stack, pos)
         if value != ' ':

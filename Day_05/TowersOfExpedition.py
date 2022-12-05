@@ -1,23 +1,16 @@
+import numpy as np
 file1 = open('Day_05\inputTest.txt', 'r')
 fileFull = file1.read()
 
 situation, actions = fileFull.split('\n\n')
 print(situation)
-# print(actions)
+
 situation = situation.split('\n')
-newSituation = []
+situMatrix = np.array([list(x) for x in situation])
+towArr = []
 
-for line in situation:
-    newLine = ''
-    for char in range(-1, len(line), 2):
-        if char>=0:
-            newLine += line[char]
+for line in range(1, situMatrix.shape[1], 4):
+     np = situMatrix[0:situMatrix.shape[0]-1,line]
+     towArr.append(np)
 
-    print(newLine)
-    newSituation.append(newLine)
-
-print(newSituation)
-
-# for line in range(len(newSituation), 0, -1):
-#     for char in range(0, len(newSituation[line]), 1):
-#         print(newSituation[line][char])
+print(towArr)

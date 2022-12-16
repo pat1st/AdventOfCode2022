@@ -1,4 +1,4 @@
-file1 = open('Day_08\inputTest.txt', 'r')
+file1 = open('Day_08\inputProd.txt', 'r')
 Lines = file1.readlines()
 
 Forest = []
@@ -18,26 +18,27 @@ VisibleTrees = 0
 
 def VisibleHorizontaly(x, y, Forest):
     visible = True
-    for i in range(0, y):
-        if Forest[x][i] >= Forest[x][y]:
+    for i in range(0, y+1):
+        if Forest[x][i] > Forest[x][y]:
             visible = False
             continue
 
-    for i in range(y, ForestWidth):
-        if Forest[x][i] >= Forest[x][y]:
-            if visible == False: return False
+    for i in range(ForestWidth-1, y-1, -1):
+        if Forest[x][i] > Forest[x][y]:
+            if visible == False:
+                return False
     return visible
 
 
 def VisibleVerticaly(x, y, Forest):
     visible = True
-    for i in range(0, x):
-        if Forest[i][y] >= Forest[x][y]:
+    for i in range(0, x+1):
+        if Forest[i][y] > Forest[x][y]:
             visible = False
             continue
 
-    for i in range(x, ForestWidth):
-        if Forest[i][y] >= Forest[x][y]:
+    for i in range(ForestWidth-1, x-1, -1):
+        if Forest[i][y] > Forest[x][y]:
             if visible == False:
                 return False
     return visible
